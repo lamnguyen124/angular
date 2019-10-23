@@ -2,11 +2,25 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styles: [
+    `
+      .list-group-item: first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-top: 0;
+      }
+    `
+  ]
 })
 export class AppComponent {
   query: string;
   artists: object;
+
+  showArtist(e, item) {
+    console.log(e);
+    this.query = item.name;
+  }
 
   constructor() {
     this.query = 'Barot';
